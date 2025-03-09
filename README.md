@@ -28,3 +28,17 @@ Settings:
 
 Results: [res2](https://github.com/ArtEvst/spring_2025_Evstafev/blob/hmw1/customerservice/results/2.png)
 
+
+Test case: 3
+
+Settings: 
+- GET
+- URL: http://localhost:8080/api/v1/get?customerId=1
+- QPS: 10000
+- Duration: 10s
+- Threads/Simultaneous connections: 10
+
+Results: [res3](https://github.com/ArtEvst/spring_2025_Evstafev/blob/hmw1/customerservice/results/3.png)
+
+MAX QPS is 57125
+
