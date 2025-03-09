@@ -14,7 +14,7 @@ Settings:
 - Duration: 10s
 - Threads/Simultaneous connections: 10
 
-Results: [res1](https://github.com/ArtEvst/spring_2025_Evstafev/tree/hmw1/results/1.png)
+Results: [res1](https://github.com/ArtEvst/spring_2025_Evstafev/blob/hmw1/customerservice/results/1.png)
 
 
 Test case: 2
@@ -26,5 +26,5 @@ Settings:
 - Duration: 10s
 - Threads/Simultaneous connections: 10
 
-Results: [res2](https://github.com/ArtEvst/spring_2025_Evstafev/tree/hmw1/results/2.png)
+Results: [res2](https://github.com/ArtEvst/spring_2025_Evstafev/blob/hmw1/customerservice/results/2.png)
 
