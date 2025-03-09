@@ -1,7 +1,6 @@
 package org.example.customerservice.RESTcontroller;
 
 import org.example.customerservice.model.CustomerService;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class RESTControllerTest {
+class CustomerServiceHashMapControllerTest {
     @Autowired
-    RESTController RESTcontroller;
+    CustomerServiceHashMapController RESTcontroller;
 
     @Autowired
     WebTestClient webTestClient;

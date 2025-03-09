@@ -10,8 +10,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
-public class RESTController {
-    final Map<Long, CustomerService> repository = new HashMap<>();
+public class CustomerServiceHashMapController {
+    private final Map<Long, CustomerService> repository = new HashMap<>();
 
     @GetMapping("/customers")
     public Flux<CustomerService> getCustomerService() {
