@@ -1,0 +1,39 @@
+### GET request to example server
+#GET https://examples.http-client.intellij.net/get
+#    ?generated-in=IntelliJ IDEA
+###
+GET http://localhost:8080/api/v1/test
+
+{}
+###
+GET http://localhost:8080/api/v1/reactive-test
+
+{}
+###
+GET http://localhost:8080/api/v1/customers
+
+{}
+###
+GET http://localhost:8080/api/v1/get?customerId=1
+
+{}
+###
+PUT http://localhost:8080/api/v1/put?customerId=17
+Content-Type: application/json
+
+{
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "age": 10,
+  "phoneNumber": "79999999999"
+}
+###
+POST http://localhost:8080/api/v1/save
+Content-Type: application/json
+
+{
+  "firstName": "Sergey",
+  "lastName": "Sergeev",
+  "age": 23,
+  "phoneNumber": "+78888888888"
+}

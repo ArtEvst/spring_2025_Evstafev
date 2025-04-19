@@ -1,0 +1,13 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgres://localhost:5432/postgres
+    username: postgres
+    password: my_pass
+    pool:
+      initial-size: 80
+      max-size: 80
+      max-idle-time: 30m
+      max-create-connection-time: 10s
+#      validation-query: "SELECT 1"
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
