@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class CustomerServicePostgreControllerTest {
+class CustomerServicePostgresControllerTest {
 
     @Autowired
     private CustomerServiceRepository repository;
