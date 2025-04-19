@@ -11,7 +11,9 @@ docker run --network host fortio/fortio load \ -quiet -qps 50000 -c 96 -t 40s "h
 docker run --network host fortio/fortio load \ -quiet -qps 50000 -c 96 -t 40s "http://localhost:8080/api/v1/get?customerId=2"
 ```
 Результаты:
+
 Первый инстанс: 14589
+
 Второй инстанс: 14559
 
 Работали они "независимо" и ммешали друг другу, наверно это и повлияло на уменьшение суммарного QPS: 29 148
