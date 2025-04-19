@@ -3,28 +3,15 @@
 ## Load Testing
 Использовал [Fortio](https://github.com/fortio/fortio?tab=readme-ov-file)
 
-Добавил одно значение в HashTable перед тестированием. Будем ломиться в него GET запросами. 
+Задание заключалось в шардировании данных по индексу. В два эксземпляра PostgreSQL я добавил данных: четных в одну, нечетных в другую. К сожалению, Фортио не позволяет
+отправлять запросы на два разных хоста одновременно, что плохо ведь get запрос возвращает в зависимости от id попкупателя в одной из баз. Самое простое решения, которое
+я придумал было запустить два контейнера с Фортио "одновременно".
+```
+docker run --network host fortio/fortio load \ -quiet -qps 50000 -c 96 -t 40s "http://localhost:8080/api/v1/get?customerId=1" &
+docker run --network host fortio/fortio load \ -quiet -qps 50000 -c 96 -t 40s "http://localhost:8080/api/v1/get?customerId=2"
+```
+Результаты:
+Первый инстанс: 14589
+Второй инстанс: 14559
 
-Test case: 1
-
-Settings: 
-- GET
-- URL: http://localhost:8080/api/v1/get?customerId=1
-- QPS: 3000
-- Duration: 10s
-- Threads/Simultaneous connections: 10
-
-Results: [res1](https://github.com/ArtEvst/spring_2025_Evstafev/tree/hmw1/results/1.png)
-
-
-Test case: 2
-
-Settings: 
-- GET
-- URL: http://localhost:8080/api/v1/get?customerId=1
-- QPS: 10000
-- Duration: 10s
-- Threads/Simultaneous connections: 10
-
-Results: [res2](https://github.com/ArtEvst/spring_2025_Evstafev/tree/hmw1/results/2.png)
-
+Работали они "независимо" и ммешали друг другу, наверно это и повлияло на уменьшение суммарного QPS: 29 148
