@@ -15,7 +15,7 @@ Settings:
 
 В таблице представлены результаты НТ: qps от Threads для 2-ух реализаций.
 
-<img src="results/qps_from_connections.png" width="600"/>
+<img src="customerservice/results/qps_from_connections.png" width="800"/>
 
 Как видим наибольший qps при 96, но иметь более 32 нагружающих потоков нет большой необходимости, прирост незначительный.
 qps для HashMap выше чем для PostgreSQL по ряду причин: 
