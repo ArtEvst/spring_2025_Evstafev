@@ -9,31 +9,32 @@
 docker run --network host fortio/fortio load -quiet -qps 50000 -c 96 -t 40s "http://localhost:8080/api/v1/get?customerId=1" &
 docker run --network host fortio/fortio load -quiet -qps 50000 -c 96 -t 40s "http://localhost:8080/api/v1/get?customerId=2"
 ```
-Pool size = 64.
+Connections 96.
 
-Результаты:
+При pool_size = 32
 
 Первый инстанс: 14589
 
 Второй инстанс: 14559
 
-Работали они "независимо" и мешали друг другу, наверно это и повлияло на уменьшение суммарного QPS: 29 148
+Работали они "независимо" и мешали друг другу, наверно это и повлияло на уменьшение суммарного QPS
 
-Pool size = 32.
+При pool_size = 32 стало чуть лучше, суммарный QPS: 30033
+
+
 
 Результаты:
 
-Даже стало чуть лучше, суммарный QPS: 30033
+Даже 
 
-Попробуем меньше конектов.
+Попробуем меньше коннектов.
 ```
 docker run --network host fortio/fortio load -quiet -qps 50000 -c 32 -t 40s "http://localhost:8080/api/v1/get?customerId=1" &
 docker run --network host fortio/fortio load -quiet -qps 50000 -c 32 -t 40s "http://localhost:8080/api/v1/get?customerId=2"
 ```
-Pool size = 64.
+Connections 32.
 
-Суммарный QPS: 33118
-
-Pool size = 32.
-
-Суммарный QPS: 32057
+| Pool size | QPS    | p50     | p90     | p99     |
+|-----------|--------|---------|---------|---------|
+|      64   | 33118  | 2.89 ms | 3.83 ms | 4.90 ms |
+|      32   | 32057  | 2.77 ms | 3.92 ms | 8.93 ms|
