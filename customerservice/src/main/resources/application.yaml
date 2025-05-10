@@ -1,0 +1,19 @@
+spring:
+  r2dbc:
+    app:
+    primary:
+      url: r2dbc:pool:postgresql://localhost:5432/postgres
+      username: postgres
+      password: my_pass
+      pool:
+        initial-size: 64
+        max-size: 64
+    secondary:
+      url: r2dbc:pool:postgresql://localhost:5433/postgres
+      username: postgres
+      password: my_pass
+      pool:
+        initial-size: 64
+        max-size: 64
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
